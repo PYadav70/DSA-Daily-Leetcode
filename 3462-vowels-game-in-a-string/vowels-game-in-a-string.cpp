@@ -8,7 +8,7 @@ public:
     bool doesAliceWin(string s) {
 
         // string vowel = {'a', 'e', 'i', 'o', 'u'};
-        int count  = 0;
+       
 
         for(char ch : s){
            if(isVowel(ch)){
