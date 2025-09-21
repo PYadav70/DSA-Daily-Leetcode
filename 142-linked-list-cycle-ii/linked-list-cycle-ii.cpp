@@ -25,7 +25,7 @@ public:
             if(slow !=fast)
                 return NULL;
 
-                ListNode* p = head;
+              ListNode* p = head;
 
                 while(p != slow){
                     p = p->next;
