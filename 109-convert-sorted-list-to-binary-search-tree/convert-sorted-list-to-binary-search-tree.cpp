@@ -9,14 +9,11 @@ public:
     ListNode* fast = head;
     ListNode* prevSlow =NULL;
 
-    while (fast && fast->next) {
+    while (fast !=NULL && fast->next !=NULL) {
         prevSlow = slow;
         slow = slow->next;
         fast = fast->next->next;
     }
-
-   
-   
 
     TreeNode* root = new TreeNode(slow->val);
     prevSlow->next = NULL;
