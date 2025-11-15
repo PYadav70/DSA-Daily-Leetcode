@@ -10,7 +10,6 @@ public:
             }else{
                 st.push(s[i]);
             }
-             
         }
          string result = "";
             while(!st.empty()){
