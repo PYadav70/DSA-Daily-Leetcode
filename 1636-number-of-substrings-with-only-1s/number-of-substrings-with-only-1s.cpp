@@ -8,14 +8,15 @@ public:
        for(char ch : s){
         if(ch == '1'){
             count++;
+            result = (result + count)%M;
         }else{
-             result = (result + count*(count+1)/2)%M;
+            //  result = (result + count*(count+1)/2)%M;
              count  = 0;
         }
        
        }
-       result = (result + count*(count+1)/2)%M;
-       return (int)result;
+    //    result = (result + count*(count+1)/2)%M;
+       return result;
         
     }
 };
