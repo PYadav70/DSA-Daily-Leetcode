@@ -15,13 +15,13 @@ public:
         if(root == NULL){
             return 0;
         }
-        newNumber = newNumber * 10 + root->val;
+       int currentNumber = newNumber * 10 + root->val;
 
         if(root->left == NULL && root->right == NULL){
-            return newNumber;
+            return currentNumber;
         }
 
-        return sumRoot(root->left, newNumber) + sumRoot(root->right, newNumber);
+        return sumRoot(root->left, currentNumber) + sumRoot(root->right, currentNumber);
 
     }
     int sumNumbers(TreeNode* root) {
