@@ -10,45 +10,28 @@
  * };
  */
 class Solution {
-    // private:
-    // int height(TreeNode* node){
-    //     if(node == NULL){
-    //         return 0;
-    //     }
-    //     int left = height(node->left);
-    //     int right = height(node->right);
-
-    //     int ans = max(left, right)+1;
-    //     return ans;
-    // }
 public:
-    pair <bool, int> isBalancedFast(TreeNode* root){
-         if(root == NULL){
-           pair <bool, int> p = make_pair(true,0);
-           return p;
+    int height(TreeNode* root){
+        if(root == NULL){
+            return 0;
         }
-        pair<bool, int> left = isBalancedFast(root->left);
-        pair<bool, int> right = isBalancedFast(root->right);
+        int left = height(root->left);
+        int right = height(root->right);
 
-        bool leftAns = left.first;
-        bool rightAns = right.first;
+        return max(left, right)+1;
 
-        bool diff = abs(left.second- right.second) <=1;
 
-        pair<bool, int>ans;
-        ans.second = max(left.second, right.second) +1; 
-        if(leftAns && rightAns && diff){
-        ans.first = true;
-
-        }else{
-            ans.first = false;;
-        }
-        return ans;
-     }
-
-   
+    }
     bool isBalanced(TreeNode* root) {
-       return isBalancedFast(root).first;
+        if(root == NULL){
+            return true;
+        }
+        int leftH = height(root->left);
+        int rightH = height(root->right);
 
-     }   
+        if(abs(leftH-rightH)>1){
+            return false;
+        }
+        return isBalanced(root->left) && isBalanced(root->right);
+    }
 };
