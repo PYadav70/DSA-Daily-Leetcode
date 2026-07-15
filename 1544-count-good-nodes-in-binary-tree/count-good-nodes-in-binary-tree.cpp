@@ -20,7 +20,6 @@ public:
             goodNode = 1;
         }
         maxNode = max(maxNode, root->val);
-
         return goodNode + countNode(root->left, maxNode) + countNode(root->right, maxNode);
     }
     int goodNodes(TreeNode* root) {
