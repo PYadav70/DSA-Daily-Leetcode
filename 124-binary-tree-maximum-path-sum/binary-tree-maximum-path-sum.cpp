@@ -19,22 +19,17 @@ public:
         int l = solve(root->left);
         int r = solve(root->right);
 
-        int niche_mil_gya = l + r + root->val;
-        int koi_ek_achha  = max(l,r)+root->val;
-        int sirf_root_achha = root->val;
+        int getLowerMaxPath = l + r + root->val;
+        int getBestLeftRightPath = max(l, r) + root->val;
+        int getMaxRoot = root->val;
 
-        maxSum = max({maxSum,niche_mil_gya,koi_ek_achha,sirf_root_achha});
+        maxSum = max({maxSum,getLowerMaxPath, getBestLeftRightPath,getMaxRoot});
 
-        return max(koi_ek_achha, sirf_root_achha);
-
-
+        return max(getBestLeftRightPath,getMaxRoot);
     }
     int maxPathSum(TreeNode* root) {
         maxSum = INT_MIN;
-
         solve(root);
-
         return maxSum;
-              
     }
 };
