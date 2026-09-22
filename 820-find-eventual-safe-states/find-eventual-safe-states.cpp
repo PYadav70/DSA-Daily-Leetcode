@@ -1,11 +1,11 @@
 class Solution {
 public:
-    bool isCycleDfs(vector<vector<int>>&adj, int u, vector<bool>&visited, vector<bool>&inRecurssion){
+    bool isCycleDfs(vector<vector<int>>&graph, int u, vector<bool>&visited, vector<bool>&inRecurssion){
         visited[u] = true;
         inRecurssion[u] = true;
 
-        for(int &v: adj[u]){
-            if(visited[v] == false && isCycleDfs(adj, v, visited, inRecurssion)){
+        for(int &v: graph[u]){
+            if(visited[v] == false && isCycleDfs(graph, v, visited, inRecurssion)){
                 return true;
             }else if(inRecurssion[v] == true){
                 return true;
