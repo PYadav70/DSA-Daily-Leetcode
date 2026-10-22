@@ -14,17 +14,11 @@ public:
         if(head == NULL || head->next == NULL){
             return head;
         }
-
-        //A=HEAD
-        //B=HEAD->NEXT
-        //C = HEAD->NEXT->NEXT
-        
         ListNode* temp = head->next;
+
         head->next = swapPairs(head->next->next);
         temp->next = head;
-        
 
         return temp;
-        
     }
 };
